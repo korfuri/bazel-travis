@@ -1,5 +1,3 @@
-sudo: true
-
 addons:
   apt:
     sources:
@@ -19,15 +17,6 @@ addons:
 # just download a prebuilt distribution of Bazel. For now, build it
 # from source every time.
 before_install:
-  # Bazel needs a GCC more recent than what Travis offers by
-  # default. Force the default g++ to be 4.8.
-  - sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.6 10
-  - sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 20
-  - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.6 10
-  - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 20
-  - sudo update-alternatives --set g++ /usr/bin/g++-4.8
-  - sudo update-alternatives --set gcc /usr/bin/gcc-4.8
-  - g++ --version
   - git clone https://github.com/google/bazel.git
   - pushd bazel
   - BAZELRC=../bazelrc ./compile.sh

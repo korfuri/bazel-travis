@@ -5,3 +5,6 @@ test --ram_utilization_factor=10
 
 # This is so we understand failures during bazel self-hosting better
 build --verbose_failures
+
+# This is so we use a recent enough GCC when building.
+build --compiler gcc-4.8
