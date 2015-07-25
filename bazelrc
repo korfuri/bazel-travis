@@ -7,4 +7,4 @@ test --ram_utilization_factor=10
 build --verbose_failures
 
 # This is so we use a recent enough GCC when building.
-build --compiler gcc-4.8
+build --crosstool_top //custom_crosstool:CROSSTOOL

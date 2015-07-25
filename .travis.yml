@@ -19,6 +19,7 @@ addons:
 before_install:
   - git clone https://github.com/google/bazel.git
   - pushd bazel
+  - cp -r ../custom_crosstool ./custom_crosstool
   - BAZELRC=../bazelrc ./compile.sh
   - popd
 
