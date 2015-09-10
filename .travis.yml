@@ -5,23 +5,22 @@ addons:
     packages:
       - gcc-4.8
       - g++-4.8
+      - wget
       # Package list from http://bazel.io/docs/install.html
       - openjdk-7-jdk
       - openjdk-7-source
       - pkg-config
       - zip
-      # - g++  # provided by g++-4.8
       - zlib1g-dev
 
 # Eventually, Bazel will have binary packages and we'll be able to
 # just download a prebuilt distribution of Bazel. For now, build it
 # from source every time.
 before_install:
-  - git clone https://github.com/google/bazel.git
-  - pushd bazel
-  - cp -r ../.bazel-travis/custom_crosstool ./custom_crosstool
-  - BAZELRC=../.bazel-travis/bazelrc ./compile.sh
-  - popd
+  - wget 'https://github.com/bazelbuild/bazel/releases/download/0.1.0/bazel-0.1.0-installer-linux-x86_64.sh'
+  - chmod +x bazel-0.1.0-installer-linux-x86_64.sh
+  - ./bazel-0.1.0-installer-linux-x86_64.sh --user
+  - cat ~/.bazelrc >> .bazelrc
 
 script:
-  - bazel/output/bazel test //src/...
+  - bazel test //src/...
