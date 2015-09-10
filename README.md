@@ -29,7 +29,8 @@ You will need:
     specify any exclusive option, except that it requires Linux
     (either container-based or legacy).
   * The `.bazelrc`.
-  * The custom crosstool that's in `tools/`.
+  * Everything under `tools/`, that includes the custom crosstool and
+    the sha256 fingerprint for Bazel's installer.
   * A (possibly empty) `WORKSPACE` file. See below.
   * Your own `script` section in the `.travis.yml` config file.
 
