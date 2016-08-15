@@ -5,11 +5,7 @@ This repository is an illustration of how to use
 
 # How it works
 
-There's a couple of tricks in here to make things work.
-
-Basically, `.travis.yml` lists a couple of apt packages that need to
-be installed to compile Bazel, and in `before_install` it clones the
-latest version of Bazel and compiles it.
+Running Bazel on Travis used to be complicated, because you had to build Bazel from source every time, or later wget a blob manually. Nowadays, the Bazel team provides Debian packages natively, so it's very easy to use Bazel in your
 
 To do so it provides its own `bazelrc` file, which limits the RAM
 allocated to Bazel. It also adds more verbosity to the build
@@ -25,8 +21,6 @@ You will need:
     specify any exclusive option, except that it requires Linux
     (either container-based or legacy).
   * The `.bazelrc`.
-  * Everything under `tools/`, that includes the custom crosstool and
-    the sha256 fingerprint for Bazel's installer.
   * A (possibly empty) `WORKSPACE` file. See below.
   * Your own `script` section in the `.travis.yml` config file.
 
