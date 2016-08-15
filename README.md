@@ -16,10 +16,6 @@ allocated to Bazel. It also adds more verbosity to the build
 process. Note that this `bazelrc` is not used to compile your code:
 it's used during the self-hosting process of Bazel.
 
-Since Travis doesn't currently support a GCC more recent than 4.6, and
-since Bazel won't build with such an old compiler, a custom crosstool
-is provided, and is passed to Bazel via the bazelrc.
-
 # How do I use this?
 
 You will need:
