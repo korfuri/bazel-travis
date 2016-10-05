@@ -8,9 +8,6 @@ addons:
       - wget
       - pkg-config
 
-# Eventually, Bazel will have binary packages and we'll be able to
-# just download a prebuilt distribution of Bazel. For now, build it
-# from source every time.
 before_install:
   - wget https://github.com/bazelbuild/bazel/releases/download/0.3.1/bazel_0.3.1-linux-x86_64.deb
   - sha256sum -c tools/bazel_0.3.1-linux-x86_64.deb.sha256
